@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hitung Mundur Menuju Ramadan 1448 H</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hitung Mundur Menuju Ramadan 1448 H">
+<meta property="og:description" content="Yuk hitung mundur bersama dan sambut Ramadan dengan berbagi lewat Rumah Zakat.">
+<meta property="og:image" content="https://suratman-rz.github.io/hitung-mundur-ramadan/og-image.png">
+<meta property="og:url" content="https://suratman-rz.github.io/hitung-mundur-ramadan/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Yuk hitung mundur bersama dan sambut Ramadan dengan berbagi lewat Rumah Zakat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff7ef;--ink:#2b2118;--muted:#6b5a4c;--gold:#d9560b;--card:#ffe9d6;--moon:#f26a1b}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#1f140d;--ink:#fbeee0;--muted:#c9ae96;--gold:#ff9a45;--card:#33210f;--moon:#ff9a45}}
+:root[data-theme="dark"]{--bg:#1f140d;--ink:#fbeee0;--muted:#c9ae96;--gold:#ff9a45;--card:#33210f;--moon:#ff9a45}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:"Fraunces",Georgia,serif;display:flex;align-items:center;justify-content:center;text-align:center}
+main{width:100%;max-width:440px;padding:24px 20px}
+.moon{width:84px;height:84px;border-radius:50%;margin:0 auto 20px;box-shadow:-20px 6px 0 0 var(--moon);transform:translateX(10px)}
+h1{font-size:1.15rem;font-weight:400;margin:0 0 8px;color:var(--muted)}
+.days{font-size:clamp(6rem,32vw,9.5rem);line-height:1;font-weight:700;color:var(--gold);margin:0}
+.lbl{font-size:1.3rem;margin:4px 0 24px}
+.time{display:flex;justify-content:center;gap:10px}
+.time div{background:var(--card);border-radius:14px;padding:12px 0;width:30%}
+.time b{display:block;font-size:1.8rem}
+.time span{font-size:.85rem;color:var(--muted)}
+.note{margin:26px 0 10px;font-size:.95rem;color:var(--muted);line-height:1.5}
+.toggle{display:inline-flex;gap:6px;margin-top:4px}
+button{font:inherit;font-size:.9rem;color:var(--ink);background:transparent;border:1.5px solid var(--muted);border-radius:999px;padding:6px 14px;cursor:pointer}
+button[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--bg)}
+button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.quote{margin:26px auto 0;padding:16px 18px;border-left:4px solid var(--gold);background:var(--card);border-radius:0 14px 14px 0;text-align:left}
+.quote small{display:block;color:var(--muted);font-size:.8rem;margin-bottom:6px}
+.quote p{margin:0;font-size:1.05rem;line-height:1.55}
+.donate{margin:22px 0 0;padding:18px;border:1.5px solid var(--gold);border-radius:16px}
+.donate p{margin:0 0 12px;font-size:1rem;line-height:1.55}
+.donate a{display:inline-block;background:var(--gold);color:var(--bg);text-decoration:none;font-weight:700;padding:10px 22px;border-radius:999px}
+.donate a:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.rz{display:block;font-size:1.35rem;font-weight:700;color:var(--gold);margin-bottom:8px}
+.share{display:inline-block;margin-top:22px;color:var(--ink);text-decoration:none;font-weight:700;border:1.5px solid var(--ink);padding:10px 22px;border-radius:999px}
+.share:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+</style>
+</head>
+<body>
+<main>
+  <div class="moon" aria-hidden="true"></div>
+  <h1 id="judul">Menuju 1 Ramadan 1448 H</h1>
+  <p class="days" id="d">0</p>
+  <p class="lbl" id="l">hari lagi</p>
+  <div class="time" id="t">
+    <div><b id="h">00</b><span>jam</span></div>
+    <div><b id="m">00</b><span>menit</span></div>
+    <div><b id="s">00</b><span>detik</span></div>
+  </div>
+  <blockquote class="quote" style="margin-left:0;margin-right:0">
+    <small>Motivasi hari ini</small>
+    <p id="q"></p>
+  </blockquote>
+  <section class="donate">
+    <strong class="rz">Rumah Zakat</strong>
+    <p>Sambut Ramadan dengan berbagi. Yuk tunaikan zakat, infak, dan sedekah melalui Rumah Zakat.</p>
+    <a href="https://linkrz.id/DonasiOnlineRZ" target="_blank" rel="noopener">Donasi sekarang</a>
+  </section>
+  <a class="share" id="share" href="https://wa.me/" target="_blank" rel="noopener">Bagikan ke WhatsApp</a>
+  <p class="note" id="n"></p>
+  <div class="toggle" role="group" aria-label="Pilih perkiraan tanggal">
+    <button data-day="8" aria-pressed="true">8 Februari 2027</button>
+    <button data-day="9" aria-pressed="false">9 Februari 2027</button>
+  </div>
+</main>
+<script>
+(function(){
+  var day = 8;
+  try { var saved = localStorage.getItem("ramadan-day"); if (saved === "9") day = 9; } catch(e) {}
+  var $ = function(id){ return document.getElementById(id); };
+  var pad = function(n){ return String(n).padStart(2,"0"); };
+  function target(){ return new Date("2027-02-0" + day + "T00:00:00+07:00").getTime(); }
+  function tick(){
+    var diff = target() - Date.now();
+    if (diff <= 0) {
+      $("d").textContent = "🌙";
+      $("l").textContent = "Marhaban ya Ramadan";
+      $("t").style.display = "none";
+      $("judul").textContent = "Ramadan 1448 H telah tiba";
+      return;
+    }
+    var s = Math.floor(diff/1000);
+    $("d").textContent = Math.floor(s/86400);
+    $("l").textContent = "hari lagi";
+    $("share").href = "https://wa.me/?text=" + encodeURIComponent("🌙 Ramadan 1448 H tinggal " + Math.floor(s/86400) + " hari lagi! Yuk hitung mundur bersama dan sambut dengan berbagi lewat Rumah Zakat.\n" + location.href.split("#")[0]);
+    $("h").textContent = pad(Math.floor(s%86400/3600));
+    $("m").textContent = pad(Math.floor(s%3600/60));
+    $("s").textContent = pad(s%60);
+    $("n").textContent = "Perkiraan awal Ramadan: " + day + " Februari 2027. Tanggal pasti menunggu sidang isbat.";
+  }
+  document.querySelectorAll("button").forEach(function(b){
+    if (b.dataset.day === String(day)) { b.setAttribute("aria-pressed","true"); } else { b.setAttribute("aria-pressed","false"); }
+    b.addEventListener("click", function(){
+      day = Number(b.dataset.day);
+      document.querySelectorAll("button").forEach(function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      try { localStorage.setItem("ramadan-day", String(day)); } catch(e) {}
+      tick();
+    });
+  });
+  var quotes = [
+    "Ramadan datang bukan untuk membuatmu lelah, tapi untuk membuatmu lebih dekat.",
+    "Mulailah bersiap dari sekarang, karena hati yang siap akan menikmati setiap detiknya.",
+    "Sedekah kecil yang rutin lebih bermakna daripada niat besar yang tertunda.",
+    "Perbaiki niat hari ini, maka amal esok hari akan lebih ringan dijalani.",
+    "Tidak ada kata terlambat untuk kembali. Pintu taubat selalu terbuka.",
+    "Berbagi tidak pernah membuat kita kekurangan. Ia justru melapangkan hati.",
+    "Latih lisan dengan zikir, latih tangan dengan memberi, latih hati dengan sabar.",
+    "Satu ayat yang dibaca dengan sepenuh hati lebih baik dari seribu kata tanpa makna.",
+    "Bersihkan hati sebelum Ramadan tiba, agar rahmatnya mudah masuk.",
+    "Maafkan orang lain hari ini. Hatimu akan lebih ringan menyambut bulan suci.",
+    "Kebaikan yang dimulai dari hal kecil sering tumbuh menjadi kebiasaan besar.",
+    "Syukur membuat yang sedikit terasa cukup, dan yang cukup terasa berlimpah.",
+    "Doa yang sungguh-sungguh adalah percakapan paling jujur dengan Sang Pencipta.",
+    "Jadikan Ramadan nanti sebagai titik awal, bukan sekadar rutinitas tahunan.",
+    "Orang yang berbagi hari ini sedang menanam pahala untuk esok.",
+    "Sabar bukan berarti diam, tapi tetap berbuat baik meski belum terlihat hasilnya.",
+    "Waktu terus berjalan. Manfaatkan hari ini sebelum Ramadan datang menjemput.",
+    "Senyum tulus kepada sesama juga termasuk sedekah yang bernilai.",
+    "Tentukan satu kebiasaan baik hari ini dan jaga sampai Ramadan tiba.",
+    "Hati yang tenang lahir dari lisan yang terjaga dan tangan yang suka memberi.",
+    "Rezeki yang dibagi tidak akan berkurang, ia berpindah menjadi keberkahan.",
+    "Semangat menyambut Ramadan adalah tanda bahwa hatimu masih hidup.",
+    "Mulai dari yang bisa kamu lakukan sekarang, sekecil apa pun itu.",
+    "Keluarga yang saling mengingatkan dalam kebaikan akan lebih kuat melewati ujian.",
+    "Jangan menunggu lapang untuk berbagi. Berbagilah, maka Allah lapangkan.",
+    "Setiap hari yang berlalu adalah kesempatan untuk memperbaiki diri sedikit demi sedikit.",
+    "Ilmu yang dipelajari sebelum Ramadan akan membuat ibadah lebih bermakna.",
+    "Berbuat baik tanpa pamrih membuat hati tenang dan hidup terasa lebih ringan.",
+    "Kuatkan niat, rapikan jadwal, dan siapkan hati. Ramadan sudah semakin dekat.",
+    "Terima kasih sudah bertahan sampai hari ini. Teruslah melangkah menuju kebaikan."
+  ];
+  var dayIndex = Math.floor((Date.now() + 7*3600*1000) / 86400000);
+  $("q").textContent = "“" + quotes[dayIndex % quotes.length] + "”";
+  tick(); setInterval(tick, 1000);
+})();
+</script>
+</body>
+</html>
